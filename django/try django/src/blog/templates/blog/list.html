@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+	<div class="rowS">
+		
+	{% for object in object_list %}
+		{% include 'blog/list-inline.html' with blog_post=object truncate=True detail=False %} <!-- - with je custom varijabla gde se blog_post stavlja kao objekat -->
+
+ 
+	{% endfor %}
+	</div>
+
+{%endblock%}

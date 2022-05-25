@@ -1,0 +1,23 @@
+<!-- sintaksa za povlacenje podataka iz baznog dokumenta base.html-->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<!-- {{user}} {{request.user}} metodi koji vraca korisnicko ime, svejedno koji se koristi
+ --><!-- {{user.is_authenticated}} metod koji vraca True ili False
+ -->
+<!-- {%if user.is_authenticated%}  klauzula ako je nesto True, izvrsi kod, mada je bolje na formi views to raditi, pa ako je True izbaciti listu -->
+
+<!-- <h1>Cool</h1>
+ -->
+{% for i in blog_list %}
+	{% include 'blog/list-inline.html' with blog_post=i truncate=True detail=False %}
+{%endfor%}
+
+
+<!-- {%endif%}
+ -->
+
+{%endblock%}

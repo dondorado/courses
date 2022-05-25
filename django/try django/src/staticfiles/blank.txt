@@ -1,0 +1,1 @@
+Nemke, the cofinjo ovo je za koriscenje lokalnih npr tekst fajlova, ide se opcija python manage.py collectstatic i fajl ce se naci u folderu koji je stavljen u setting

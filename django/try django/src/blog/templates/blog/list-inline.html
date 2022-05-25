@@ -1,0 +1,36 @@
+<div class="col-12 col-md-10 mb-3 mx-auto">
+	
+<div class="card {% if not blog_post.publish_date %} border-warning text-dark {% endif %}"> <!-- moze da se ubaci if klauzula u farbanje polja -->
+	<div class="card-body">
+		{% if blog_post.image %}
+			<a href="{{blog_post.get_absolute_url}}">
+			<img src="{{blog_post.image.url}}" class="card-img-top">
+			</a>
+		{% endif %}	
+		<h5 class="card-title">{{blog_post.title}}</h5>
+		<p class="card-text">
+				{% if not blog_post.publish_date %}
+			<small class="text-muted">Not yet published</small>
+			{%else%}
+				<small class="text-muted">{{blog_post.publish_date}}</small>
+
+			{% endif %}
+
+		{% if truncate %}	
+		{{blog_post.content|linebreaks|truncatewords:38}}
+		{%else%}
+			{{blog_post.content|linebreaks}}
+
+		 <!-- linebreak su prekidi gde pocinje novi paragraf, truncatewords je smanjenje velikog teksta na odrejdeni broj reci -->
+		{%endif%}
+		</p>
+		{% if not detal%}
+		{% if not blog_post.publish_date %} Draft {% endif %}
+			<a href="{{blog_post.get_absolute_url}}">View</a>
+		
+		
+		{%endif%}	
+	</div>
+	
+</div>
+</div>
